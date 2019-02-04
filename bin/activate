@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# @author Taras Labiak <taras.labiak@indeema.com>
+
+export PROJECT="passport-example"
+./bin/run bash

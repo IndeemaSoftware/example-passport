@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# @author Taras Labiak <taras.labiak@indeema.com>
+
+MESSAGE=$1
+if [[ -z ${MESSAGE} ]]
+then
+    # echo 'export DEFAULT_MESSAGE=save' >> ~/.bashrc
+    MESSAGE="$(timestamp) ${DEFAULT_MESSAGE}"
+fi
+git pull
+git add -A
+git commit -m "${MESSAGE}"
+git push

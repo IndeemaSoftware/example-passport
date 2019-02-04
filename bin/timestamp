@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# @author Taras Labiak <taras.labiak@indeema.com>
+
+date +%Y%m%d_%H%M%S
