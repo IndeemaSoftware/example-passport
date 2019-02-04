@@ -1,16 +1,19 @@
 const express = require("express");
 const config = require("../config");
 const bodyParser = require('body-parser');
+const passport = require("./passport");
+const session = require("./session");
 // const R = require("ramda");
 
 const app = express();
 
 app.use(express.static(__dirname + "/../public"));
-
 app.use(bodyParser.json());
+app.use(session);
 
 const api = new express.Router();
 
+api.use("/auth", passport);
 api.get("/", function(req, res) {
   res.json({ok: true});
 });
