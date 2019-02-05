@@ -1,18 +1,16 @@
 const passport = require("passport");
 const express = require("express");
 
-const strategies = ["local"];
+const strategies = ["local", "facebook"];
 
 const router = new express.Router();
 
 for (const strategy of strategies) {
   passport.use(require("./" + strategy));
-  router.post("/" + strategy, passport.authenticate(strategy), function(req, res) {
+  router["local" === strategy ? "post" : "get"]("/" + strategy, passport.authenticate(strategy), function(req, res) {
     res.json({
       ok: req.isAuthenticated(),
-      user: {
-        username: req.user.username
-      }
+      user: req.user
     });
   });
 }

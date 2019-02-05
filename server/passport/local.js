@@ -1,4 +1,4 @@
-const LocalStrategy = require("passport-local").Strategy;
+const { Strategy } = require("passport-local");
 
 const users = [
   {
@@ -13,7 +13,7 @@ for (const user of users) {
   user.password = user.username;
 }
 
-module.exports = new LocalStrategy(
+module.exports = new Strategy(
   {
     // usernameField: "username",
     // passwordField: "password"

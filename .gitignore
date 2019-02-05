@@ -82,7 +82,7 @@ ssl
 nbproject
 package-lock.json
 .vscode
-config.json
+config.js*
 
 ############################
 # Node.js

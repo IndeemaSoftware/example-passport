@@ -11,5 +11,6 @@ passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 
-config.session.store = new RedisStore(config.session.store);
-module.exports = session(config.session);
+const sessionConfig = Object.create(config.session)
+sessionConfig.store = new RedisStore(config.session.store);
+module.exports = session(sessionConfig);
